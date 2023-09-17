@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recipe_app/screens/components/profile_body.dart';
 import 'package:recipe_app/themes.dart';
 
-import 'components/bottom_nav_bar.dart';
+// import 'components/bottom_nav_bar.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -12,7 +12,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(),
       body: const ProfileBody(),
-      bottomNavigationBar: const BottomNavBar(),
+      // bottomNavigationBar: const BottomNavBar(),
     );
   }
 

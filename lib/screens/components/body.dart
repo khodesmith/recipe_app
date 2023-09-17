@@ -8,20 +8,26 @@ import 'package:recipe_app/models/recipe_bundle.dart';
 
 import 'categories.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   const Body({super.key});
 
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  List<RecipeBundle> recipes = recipeBundles;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Column(
         children: [
-          Categories(),
+          Categories(callBack: _filterRecipees),
           Expanded(
               child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: GridView.builder(
-              itemCount: recipeBundles.length,
+              itemCount: recipes.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount:
                     SizeConfig.orientation == Orientation.landscape ? 2 : 1,
@@ -33,7 +39,7 @@ class Body extends StatelessWidget {
                 childAspectRatio: 1.65,
               ),
               itemBuilder: (context, index) => RecipeBundleCard(
-                recipeBundle: recipeBundles[index],
+                recipeBundle: recipes[index],
                 // press: () {},
               ),
             ),
@@ -41,5 +47,17 @@ class Body extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void _filterRecipees(String category) {
+    setState(() {
+      if (category.toLowerCase() == 'All'.toLowerCase()) {
+        recipes = recipeBundles;
+      } else {
+        recipes = recipeBundles
+            .where((recipe) => recipe.category == category)
+            .toList();
+      }
+    });
   }
 }

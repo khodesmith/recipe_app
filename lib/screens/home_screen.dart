@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:recipe_app/screens/components/body.dart';
 import 'package:recipe_app/size_config.dart';
 
-import 'components/bottom_nav_bar.dart';
+// import 'components/bottom_nav_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: const Body(),
-      bottomNavigationBar: const BottomNavBar(),
+      // bottomNavigationBar: const BottomNavBar(),
     );
   }
 }

@@ -4,7 +4,8 @@ import '../../size_config.dart';
 import '../../themes.dart';
 
 class Categories extends StatefulWidget {
-  const Categories({super.key});
+  const Categories({super.key, required this.callBack});
+  final Function(String) callBack;
 
   @override
   State<Categories> createState() => _CategoriesState();
@@ -34,6 +35,7 @@ class _CategoriesState extends State<Categories> {
         setState(() {
           selectedIndex = index;
         });
+        widget.callBack(categories[selectedIndex]);
       },
       child: Container(
         alignment: Alignment.center,

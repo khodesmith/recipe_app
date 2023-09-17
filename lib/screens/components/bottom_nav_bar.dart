@@ -27,7 +27,7 @@ class BottomNavBar extends StatelessWidget {
         ),
         child: SafeArea(
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: List.generate(
               navItems.items.length,
               (index) => buildIconNavbarItem(
@@ -45,9 +45,9 @@ class BottomNavBar extends StatelessWidget {
   }
 
   IconButton buildIconNavbarItem(
-      {String? icon, bool isActive = false, Function? press}) {
+      {String? icon, bool isActive = false, Function()? press}) {
     return IconButton(
-      onPressed: () {},
+      onPressed: press,
       icon: SvgPicture.asset(
         icon!,
         colorFilter: isActive
@@ -57,6 +57,4 @@ class BottomNavBar extends StatelessWidget {
       ),
     );
   }
-
-  void press() {}
 }

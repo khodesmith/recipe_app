@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class RecipeBundle {
   final int id, chef, recipe;
-  final String title, description, imageSrc;
+  final String title, description, imageSrc, category;
   final Color color;
 
   RecipeBundle({
@@ -13,6 +13,7 @@ class RecipeBundle {
     required this.description,
     required this.imageSrc,
     required this.color,
+    required this.category,
   });
 }
 
@@ -26,6 +27,7 @@ List<RecipeBundle> recipeBundles = [
     description: 'New and tasty recipes every minutes',
     imageSrc: 'assets/images/cook_new@2x.png',
     color: const Color(0xFFD82D40),
+    category: 'Mexican',
   ),
   RecipeBundle(
     id: 2,
@@ -35,6 +37,7 @@ List<RecipeBundle> recipeBundles = [
     description: 'Cook recipe for special Occassions',
     imageSrc: 'assets/images/best_2020@2x.png',
     color: const Color(0xFF90AF17),
+    category: 'Italian',
   ),
   RecipeBundle(
     id: 3,
@@ -44,5 +47,6 @@ List<RecipeBundle> recipeBundles = [
     description: 'What\'s your favourite food dish, make it now',
     imageSrc: 'assets/images/food_court@2x.png',
     color: const Color(0xFF2DBBD8),
+    category: 'Chinese',
   ),
 ];
